@@ -1,48 +1,45 @@
+import "./App.css";
+import "./css/Todo.css";
 
-import logo from './logo.svg';
-import './App.css';
-import TodoItem from './components/TodoItem'
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
+// Components
+import Header from "./components/Header";
+import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.TodoItem = [
-      { title: 'di choi'},
-      { title: 'di hoc'}, 
-      { title: 'di ve'}, 
-      { title: 'di abc'} 
-    ];
+class App extends React.PureComponent {
+  state = {
+    todosList: [
+      {
+        id: 1,
+        text: "todo 1",
+        isCompleted: true,
+      },
+      {
+        id: 2,
+        text: "todo 2",
+        isCompleted: false,
+      },
+      {
+        id: 3,
+        text: "todo 3",
+        isCompleted: false,
+      },
+    ],
   }
-  render() {
-    return(
-      <div className="App">
-        {
-          this.TodoItem.map((item) => <TodoItem title={item.title}/>)
-        }
-      </div>
-    )
-  }
+
+
+    render() {
+      const { todosList } = this.state;
+      return (
+        <div className="todoapp">
+          <Header />
+          <TodoList  todosList={todosList}/>
+          <Footer />
+        </div>
+      );
+    }
 }
-// class App extends Component {
-//   constructor() {
-//     super();
-//     this.TodoItem = [
-//       'di choi',
-//       'di hoc', 
-//       'di ve'
-//     ];
-//   }
-//   render() {
-//   return (
-//     <div className="App">
-//       {
-//         this.TodoItem.map((item) => <TodoItem title={item} />)
-//       }
-//     </div>
-//   );
-//   }
-// }
 
 export default App;
