@@ -12,6 +12,7 @@ const Header = memo(props => {
                 text,
                 isCompleted: false
             })
+            setText('')
         }
     }
     return (
